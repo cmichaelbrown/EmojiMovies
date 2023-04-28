@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Movie Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        h1 {
+            color: #2f2f2f;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        #emojis {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #response {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Emoji Movie Guessing Game</h1>
+    <p>Can you guess the movie based on the emojis? Click "New Movie" to start!</p>
+    <button id="newMovie">New Movie</button>
+    <div id="emojis"></div>
+    <input type="text" id="movieTitle" placeholder="Enter movie title">
+    <button id="submitGuess">Submit Guess</button>
+    <div id="response"></div>
+    <script>
+        const movies = [
+            {title: "The Lion King", emojis: "🦁👑🌍🐗🦓🐒🐘🌅🎶"},
+            {title: "Forrest Gump", emojis: "🏫🎒🏃‍♂️🎓👟🏈🚌👩🍤🚁🏥🇻🇳"},
+            {title: "The Hunger Games", emojis: "🏹👧🔥🍞🌲🏞️🏟️🤝📺💥🏆"},
+            // Add more movies and emojis here
+        ];
+
+        const newMovieButton = document.getElementById("newMovie");
+        const submitGuessButton = document.getElementById("submitGuess");
+        const emojisDiv = document.getElementById("emojis");
+        const movieTitleInput = document.getElementById("movieTitle");
+        const responseDiv = document.getElementById("response");
+
+        let currentMovie = null;
+
+        newMovieButton.addEventListener("click", () => {
+            currentMovie = movies[Math.floor(Math.random() * movies.length)];
+            emojisDiv.innerHTML = currentMovie.emojis;
+            movieTitleInput.value = '';
+            responseDiv.innerHTML = '';
+        });
+
+        submitGuessButton.addEventListener("click", () => {
+            const userGuess = movieTitleInput.value.trim();
+            if (userGuess.toLowerCase() === currentMovie.title.toLowerCase()) {
+                responseDiv.innerHTML = 'Correct! Well done!';
+            } else {
+                responseDiv.innerHTML = `Incorrect. The correct movie title is "${currentMovie.title}".`;
+            }
+        });
+    </script>
+</body>
+</html>
