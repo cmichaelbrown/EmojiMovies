@@ -2,19 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Emoji Movie Guessing Game</title>
 </head>
 <body>
-    <h1>Emoji Movie Guessing Game</h1>
-    <p>Can you guess the movie based on the emojis? Click "New Movie" to start!</p>
-    <button id="newMovie">New Movie</button>
-    <div id="emojis"></div>
-    <input type="text" id="movieTitle" placeholder="Enter movie title">
-    <button id="submitGuess">Submit Guess</button>
-    <div id="response"></div>
+    <h1>Guess The Movie</h1>
+    <p id="instructions">Can you guess the &#127909; based on the emojis? &#128517;<br/><br/><br/>Tap below to begin!</p>
+    <button id="start">Start</button>
+    <div id="gameContent" style="display: none;">
+        <div id="emojis"></div>
+        <input type="text" id="movieTitle" placeholder="Enter movie title">
+        <button id="submitGuess">Submit Guess</button>
+        <div id="response"></div>
+    </div>
+    <div id="scoreSliderContainer" style="display: none;">
+        <input type="range" id="scoreSlider" min="0" max="10" step="1" value="0" disabled>
+        <p id="sliderLabel">Correct answers: <span id="correctCount">0</span></p>
+    </div>
     <script src="app.js"></script>
+    <script src="movies.js"></script>
+    <script src="slider.js"></script>
 </body>
 </html>

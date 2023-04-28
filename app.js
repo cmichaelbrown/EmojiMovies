@@ -1,23 +1,18 @@
-const movies = [
-    {title: "The Lion King", emojis: "🦁👑🌍🐗🦓🐒🐘🌅🎶"},
-    {title: "Forrest Gump", emojis: "🏫🎒🏃‍♂️🎓👟🏈🚌👩🍤🚁🏥🇻🇳"},
-    {title: "The Hunger Games", emojis: "🏹👧🔥🍞🌲🏞️🏟️🤝📺💥🏆"},
-    // Add more movies and emojis here
-];
-
-const newMovieButton = document.getElementById("newMovie");
+const startButton = document.getElementById("start");
 const submitGuessButton = document.getElementById("submitGuess");
 const emojisDiv = document.getElementById("emojis");
 const movieTitleInput = document.getElementById("movieTitle");
 const responseDiv = document.getElementById("response");
+const gameContent = document.getElementById("gameContent");
+const instructions = document.getElementById("instructions");
 
 let currentMovie = null;
 
-newMovieButton.addEventListener("click", () => {
-    currentMovie = movies[Math.floor(Math.random() * movies.length)];
-    emojisDiv.innerHTML = currentMovie.emojis;
-    movieTitleInput.value = '';
-    responseDiv.innerHTML = '';
+startButton.addEventListener("click", () => {
+    startButton.style.display = "none";
+    instructions.style.display = "none";
+    gameContent.style.display = "block";
+    newMovie();
 });
 
 submitGuessButton.addEventListener("click", () => {
@@ -28,3 +23,10 @@ submitGuessButton.addEventListener("click", () => {
         responseDiv.innerHTML = `Incorrect. The correct movie title is "${currentMovie.title}".`;
     }
 });
+
+function newMovie() {
+    currentMovie = movies[Math.floor(Math.random() * movies.length)];
+    emojisDiv.innerHTML = currentMovie.emojis;
+    movieTitleInput.value = '';
+    responseDiv.innerHTML = '';
+}
