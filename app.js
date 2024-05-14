@@ -5,7 +5,6 @@ const movieTitleInput = document.getElementById("movieTitle");
 const responseDiv = document.getElementById("response");
 const gameContent = document.getElementById("gameContent");
 const instructions = document.getElementById("instructions");
-const scoreSlider = document.getElementById("scoreSlider");
 const correctCount = document.getElementById("correctCount");
 
 let currentMovie = null;
