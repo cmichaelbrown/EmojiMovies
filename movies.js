@@ -1,3 +1,3 @@
 const movies = [
-    {title: "The Lion King", emojis: "🦁👑🌍🐗🦓🐒🐘🌅🎶"}
+    {title: "The Lion King", emojis: "🦁👑🌍🐗🦓"}
 ];

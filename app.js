@@ -40,7 +40,7 @@ submitGuessButton.addEventListener("click", () => {
 
 function newMovie() {
     currentMovie = movies[Math.floor(Math.random() * movies.length)];
-    currentEmojis = currentMovie.emojis.split(' ');
+    currentEmojis = currentMovie.emojis.split('');
     currentEmojiIndex = 0;
     attempts = 0;
     displayEmojis();
