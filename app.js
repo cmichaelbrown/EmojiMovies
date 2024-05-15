@@ -5,6 +5,7 @@ const movieTitleInput = document.getElementById("movieTitle");
 const responseDiv = document.getElementById("response");
 const gameContent = document.getElementById("gameContent");
 const instructions = document.getElementById("instructions");
+const scoreSlider = document.getElementById("scoreSlider");
 const correctCount = document.getElementById("correctCount");
 
 let currentMovie = null;
@@ -39,7 +40,7 @@ submitGuessButton.addEventListener("click", () => {
 
 function newMovie() {
     currentMovie = movies[Math.floor(Math.random() * movies.length)];
-    currentEmojis = currentMovie.emojis.split('');  // Split emojis by character
+    currentEmojis = Array.from(currentMovie.emojis);  // Properly handle emoji characters
     currentEmojiIndex = 0;
     attempts = 0;
     displayEmojis();
@@ -48,7 +49,7 @@ function newMovie() {
 }
 
 function displayEmojis() {
-    emojisDiv.innerHTML = currentEmojis.slice(0, currentEmojiIndex + 1).join(' ');
+    emojisDiv.innerHTML = currentEmojis.slice(0, currentEmojiIndex + 1).join('');
 }
 
 function updateScore() {
